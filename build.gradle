@@ -1,4 +1,4 @@
-group 'Kotlin-HTML-test'
+group 'jp.mayoneko'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -12,10 +12,14 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
+
 apply plugin: 'kotlin'
 
 jar{
+    manifest{
+        attributes 'Main-Class': 'MainKt'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     baseName='Kotlin-HTML-test'
     version='0.1.0'
 }
