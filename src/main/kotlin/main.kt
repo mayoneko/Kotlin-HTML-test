@@ -1,8 +1,10 @@
 import spark.Spark.get
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
+import spark.Spark.port
 
 fun main(args: Array<String>) {
+    port(getHerokuAssignedPort())
     val text = createHTML().html {
         head {
             meta(charset = "UTF-8")
@@ -43,4 +45,10 @@ fun main(args: Array<String>) {
 
 }
 
-
+fun getHerokuAssignedPort(): Int {
+    val processBuilder = ProcessBuilder()
+    return if (processBuilder.environment()["PORT"] != null) {
+        Integer.parseInt(processBuilder.environment()["PORT"])
+    } else 4567
+//return default port if heroku-port isn't set (i.e. on localhost)
+}
