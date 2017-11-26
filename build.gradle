@@ -49,3 +49,6 @@ defaultTasks "clean", "build"
 task wrapper(type:Wrapper){
     gradleVersion='4.3'
 }
+
+task stage(dependsOn:['clean'])
+stage.finalizedBy build
