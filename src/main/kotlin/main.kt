@@ -25,6 +25,18 @@ fun main(args: Array<String>) {
             }
         }
     }
+    val index = createHTML().html {
+        head {
+            meta(charset = "UTF-8")
+            title { +"こんにちは" }
+        }
+        body {
+            a(href = "/hello") { +"こちらへ" }
+        }
+    }
+    get("/") { request, response ->
+        index
+    }
     get("/hello") { request, response ->
         text
     }
