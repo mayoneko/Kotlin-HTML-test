@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
         head {
             meta(charset = "UTF-8")
             title {
-                +"hogehoge"
+                +"Kotlin-HTML-test"
             }
             style {
                 +"table,td{border:solid 1px #000000; border-collapse:collapse;}"
