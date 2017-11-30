@@ -2,7 +2,7 @@ group 'jp.mayoneko'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.61'
+    ext.kotlin_version = '1.2.0'
 
     repositories {
         mavenCentral()
@@ -29,6 +29,9 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url('https://dl.bintray.com/kotlin/exposed/')
+    }
     jcenter()
 }
 
@@ -38,6 +41,7 @@ dependencies {
     def kotlinx_html_version ="0.6.8"
     compile "org.jetbrains.kotlinx:kotlinx-html-jvm:${kotlinx_html_version}"
     compile 'org.slf4j:slf4j-simple:+'
+    compile 'org.jetbrains.exposed:exposed:0.9.1'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
